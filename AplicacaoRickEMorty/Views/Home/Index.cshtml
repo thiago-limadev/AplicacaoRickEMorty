@@ -1,0 +1,115 @@
+﻿@model AplicacaoRickEMorty.Models.Characters
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="container">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" oninput="applyFilters()">
+        </div>
+        <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="alive">Alive</option>
+                <option value="dead">Dead</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </div>
+        <div>
+            <label for="gender">Gênero:</label>
+            <select id="gender" name="gender" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="genderless">Genderless</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </div>
+
+        
+
+        @if (Model == null || Model.Results.Count == 0)
+        {
+            <p> Vazio</p>
+        }
+        else
+        {
+            <h2>Personagens:</h2>
+            <div class="row">
+                @foreach (var character in Model.Results)
+                {
+                    <div class="col-md-3 mt-3">
+                        <div class="card">
+                            <img src="@character.Image" class="card-img-top" alt="No image" />
+                            <div class="card-body">
+                                <p class="card-text"><strong>@character.Name</strong></p>
+                                <p class="card-text">Espécie: @character.Species</p>
+                                <p class="card-text">Status: @character.Status</p>
+                                <p class="card-text">Origem: @character.Origin.Name</p>
+                                <p class="card-text">Localização: @character.Location.Name</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="text-center mt-3">
+                <div class="d-inline-block">
+                    @if (!string.IsNullOrEmpty(Model.Info.Prev))
+                    {
+                        var prevPage = Model.Info.Prev.Split("=").Last();
+                        <a id="previous-page" asp-action="Index" asp-route-page="@prevPage" onclick="applyFilters(@prevPage)">Anterior</a>
+                    }
+                </div>
+
+                <div class="mx-3 d-inline-block">
+                    @if (!string.IsNullOrEmpty(Model.Info.Prev))
+                    {
+                        @if (Model.Info.Prev.Contains("page="))
+                        {
+                            int currentPage = int.Parse(Model.Info.Prev.Substring(Model.Info.Prev.IndexOf("page=") + 5));
+                            int pageCount = Model.Info.Pages;
+
+                            if (currentPage >= 5)
+                            {
+                                <a asp-action="Index" asp-route-page="@(currentPage - 5)">...</a>
+                            }
+
+                            for (int i = currentPage; i <= currentPage + 4 && i <= pageCount; i++)
+                            {
+                                if (i == currentPage)
+                                {
+                                    <a asp-action="Index" asp-route-page="@i">@i</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="Index" asp-route-page="@i">@i</a>
+                                }
+                            }
+                            if (currentPage + 5 <= pageCount)
+                            {
+                                <a asp-action="Index" asp-route-page="@(currentPage + 5)">...</a>
+                            }
+                        }
+                    }
+                </div>
+
+                <div class="d-inline-block">
+                    @if (!string.IsNullOrEmpty(Model.Info.Next))
+                    {
+                        var nextPage = Model.Info.Next.Split("=").Last();
+                        <a id="next-page" asp-action="Index" asp-route-page="@nextPage" onclick="applyFilters(@nextPage)">Próxima</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/js/site.js"></script>
