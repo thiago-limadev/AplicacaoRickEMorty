@@ -1,79 +1,53 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("status")) {
-        document.getElementById("status").addEventListener("change", function () {
-            applyFilters(getPageNumberFromUrl(window.location.href), '', this.value, document.getElementById("gender").value);
-        });
-    }
-
-    if (document.getElementById("gender")) {
-        document.getElementById("gender").addEventListener("change", function () {
-            applyFilters(getPageNumberFromUrl(window.location.href), '', document.getElementById("status").value, this.value);
-        });
-    }
-
-    if (document.getElementById("previous-page")) {
-        document.getElementById("previous-page").addEventListener("click", function () {
-            var currentPage = getPageNumberFromUrl(window.location.href);
-            if (currentPage > 1) {
-                var statusFilter = document.getElementById("status").value;
-                var genderFilter = document.getElementById("gender").value;
-                applyFilters(currentPage - 1, '', statusFilter, genderFilter);
-            }
-        });
-    }
-
-    if (document.getElementById("next-page")) {
-        document.getElementById("next-page").addEventListener("click", function () {
-            var currentPage = getPageNumberFromUrl(window.location.href);
-            var statusFilter = document.getElementById("status").value;
-            var genderFilter = document.getElementById("gender").value;
-            applyFilters(currentPage + 1, '', statusFilter, genderFilter);
-        });
-    }
-
     document.getElementById("status").value; // Define "Todos" como o valor padrão
-    applyFilters(getPageNumberFromUrl(window.location.href), '', 'Todos', 'Todos');
+    applyFilters(getPageNumberFromUrl(window.location.href));
 });
+function getPageNumberFromUrl(url) {
+    var pageNumber = 1; // Define o número da página como 1 por padrão
+    var urlParams = new URLSearchParams(new URL(url).search);
+    if (urlParams.has('page')) {
+        pageNumber = parseInt(urlParams.get('page'));
+    }
+    return pageNumber;
+}
 
-function applyFilters(page, nameFilter, statusFilter, genderFilter) {
-    console.log('entrou aqui');
-    var url = "https://rickandmortyapi.com/api/character/?";
+function applyFilters(page) {
+    var nameFilter = document.getElementById("name").value;
+    var statusFilter = document.getElementById("status").value;
+    var genderFilter = document.getElementById("gender").value;
+    var url = new URL("https://rickandmortyapi.com/api/character/");
 
+    var params = new URLSearchParams(url.search);
     if (page) {
-        url += `page=${page}`;
+        params.set('page', page);
     } else {
-        url += "page=1";
+        params.set('page', '1');
     }
 
     if (nameFilter) {
-        url += `&name=${nameFilter}`;
+        params.set('name', nameFilter);
     }
 
     if (statusFilter && statusFilter !== "Todos" && statusFilter !== "") {
-        url += `&status=${statusFilter}`;
+        params.set('status', statusFilter);
     }
 
     if (genderFilter && genderFilter !== "Todos" && genderFilter !== "") {
-        url += `&gender=${genderFilter}`;
+        params.set('gender', genderFilter);
     }
+
+    url.search = params.toString();
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             updateDisplay(data);
+            history.pushState({}, '', '?' + params.toString());
         })
         .catch(error => {
             console.error('Houve um erro ao buscar os personagens:', error);
         });
 }
-
-function getPageNumberFromUrl(url) {
-    if (!url) return 1;
-
-    const urlSearchParams = new URLSearchParams(new URL(url).search);
-    return parseInt(urlSearchParams.get("page")) || 1;
-}
-
 function updateDisplay(data) {
     var container = document.querySelector(".row"); // Seletor para o contêiner dos personagens
 
