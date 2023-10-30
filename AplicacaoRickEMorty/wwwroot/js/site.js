@@ -132,7 +132,9 @@ function updateDisplay(data) {
             card.className = "col-md-3 mt-3";
             card.innerHTML = `
                 <div class="card">
-                    <img src="${character.image}" class="card-img-top" alt="No image" />
+                    <a href="#" onclick="redirectToCharacterDetails(${character.id})"> <!-- Redireciona para detalhes -->
+                    <img src="${character.image}" class="card-img-top" alt="No image" style="cursor: pointer;" data-id="${character.id}"/>
+                    </a>
                     <div class="card-body">
                         <p class="card-text"><strong>${character.name}</strong></p>
                         <p class="card-text">Espécie: ${character.species}</p>
@@ -147,4 +149,16 @@ function updateDisplay(data) {
     } else {
         console.log("Nenhum personagem encontrado.");
     }
+}
+
+function redirectToCharacterDetails(characterId) {
+    // Redireciona para a página de detalhes do personagem com base no ID
+    window.location.href = `/Home/CharacterDetails/${characterId}`;
+}
+
+function getEpisodeIdFromUrl(url) {
+    var segments = new URL(url).pathname.split('/');
+    var idString = segments[segments.length - 1];
+    var episodeId = parseInt(idString);
+    return episodeId;
 }

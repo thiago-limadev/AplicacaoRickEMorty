@@ -1,0 +1,46 @@
+﻿@model AplicacaoRickEMorty.Models.Character
+
+@{
+    ViewData["Title"] = "Detalhes do Personagem";
+}
+
+<div class="container-details ">
+    <div class="row mt-3">
+        <div class="col-md-10 offset-md-1">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="mr-3">
+                        <img src="@Model.Image" class="card-img-top" alt="No image" style="max-width: 100%; height: auto;" />
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="cartao-detalhes">
+                        <h2 class="card-text-detalhado"><strong>@Model.Name</strong></h2>
+                        <p class="card-text-detalhado"><strong>Espécie:</strong> @Model.Species</p>
+                        <p class="card-text-detalhado"><strong>Status:</strong> @Model.Status</p>
+                        <p class="card-text-detalhado"><strong>Origem:</strong> @Model.Origin.Name</p>
+                        <p class="card-text-detalhado"><strong>Localização:</strong> @Model.Location.Name</p>
+                        <p class="card-text-detalhado"><strong>Gênero:</strong> @Model.Gender</p>
+
+                    </div>
+                </div>
+             </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-left">
+                    <p class="card-text-detalhado"><strong>Lista de episódios:</strong></p>
+                    <div id="episode-container" >
+                        <ul class="no-bullets">
+                            @for (var i = 0; i < Model.EpisodeNames.Count; i++)
+                            {
+                                var episodeName = Model.EpisodeNames[i];
+                                var episodeId = Model.NumEpisodes[i];
+                                <li><strong>@($"Episódio {episodeId} :")</strong> @episodeName</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

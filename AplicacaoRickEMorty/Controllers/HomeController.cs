@@ -32,6 +32,7 @@ namespace AplicacaoRickEMorty.Controllers
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Characters characters = JsonConvert.DeserializeObject<Characters>(responseBody);
 
+
                 return View(characters);
             }
             catch (HttpRequestException ex)
@@ -46,15 +47,79 @@ namespace AplicacaoRickEMorty.Controllers
             }
         }
 
-        public IActionResult Privacy()
+       
+
+        public async Task<IActionResult> CharacterDetails(int id)
         {
-            return View();
+            try
+            {
+                HttpClient httpClient = _clientFactory.CreateClient();
+                HttpResponseMessage response = await httpClient.GetAsync($"https://rickandmortyapi.com/api/character/{id}");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Character character = JsonConvert.DeserializeObject<Character>(responseBody);
+
+                List<string> episodeNames = new List<string>();
+                List<int> episodeIds = new List<int>();
+                foreach (var episodeUrl in character.Episode)
+                {
+                    var episodeId = GetEpisodeIdFromUrl(episodeUrl);
+                    string episodeName = await GetEpisodeName(episodeId);
+                    episodeNames.Add(episodeName);
+                    episodeIds.Add(episodeId);
+                    
+                }
+                character.EpisodeNames = episodeNames;
+                character.NumEpisodes = episodeIds;
+
+                return View(character); // Use uma view para exibir os detalhes do personagem
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Erro na solicitação HTTP: {ex.Message}");
+                return StatusCode(500, "Erro ao buscar o personagem. Por favor, tente novamente mais tarde.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+                return StatusCode(500, "Ocorreu um erro. Por favor, tente novamente mais tarde.");
+            }
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        private int GetEpisodeIdFromUrl(string url)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var segments = new Uri(url).Segments;
+            var idString = segments[segments.Length - 1].Trim('/');
+            if (int.TryParse(idString, out int id))
+            {
+                return id;
+            }
+            return -1; // ou lance uma exceção, dependendo da lógica do seu aplicativo
         }
+
+        public async Task<string> GetEpisodeName(int episodeId)
+        {
+            try
+            {
+                HttpClient httpClient = _clientFactory.CreateClient();
+                HttpResponseMessage response = await httpClient.GetAsync($"https://rickandmortyapi.com/api/episode/{episodeId}");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                dynamic episode = JsonConvert.DeserializeObject(responseBody);
+
+                return episode.name;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Erro na solicitação HTTP: {ex.Message}");
+                return "Nome do episódio não encontrado";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+                return "Ocorreu um erro ao buscar o nome do episódio";
+            }
+        }
+
     }
 }

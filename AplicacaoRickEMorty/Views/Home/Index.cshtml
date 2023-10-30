@@ -5,35 +5,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <img src="~/imagens/logo.svg" alt="Imagem Lista de Personagens" style="display: block; margin: 0 auto;" />
 
-    <div class="container">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" oninput="applyFilters()">
-        </div>
-        <div>
-            <label for="status">Status:</label>
-            <select id="status" name="status" onchange="applyFilters()">
-                <option value="">Todos</option>
-                <option value="alive">Alive</option>
-                <option value="dead">Dead</option>
-                <option value="unknown">Unknown</option>
-            </select>
-        </div>
-        <div>
-            <label for="gender">Gênero:</label>
-            <select id="gender" name="gender" onchange="applyFilters()">
-                <option value="">Todos</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="genderless">Genderless</option>
-                <option value="unknown">Unknown</option>
-            </select>
-        </div>
+    <br/>
 
+    <div class="filters-container">
+        <label for="name" class="filter-label">Name:</label>
+        <input type="text" id="name" name="name" oninput="applyFilters()">
 
+        <label for="status" class="filter-label">Status:</label>
+        <select id="status" name="status" onchange="applyFilters()">
+            <option value="">Todos</option>
+            <option value="alive">Alive</option>
+            <option value="dead">Dead</option>
+            <option value="unknown">Unknown</option>
+        </select>
+
+        <label for="gender" class="filter-label">Gênero:</label>
+        <select id="gender" name="gender" onchange="applyFilters()">
+            <option value="">Todos</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="genderless">Genderless</option>
+            <option value="unknown">Unknown</option>
+        </select>
+    </div>
+
+    <br/>
 
         @if (Model == null || Model.Results.Count == 0)
         {
@@ -41,23 +40,11 @@
         }
         else
         {
-            <h2>Personagens:</h2>
-            <div class="row">
-                @foreach (var character in Model.Results)
-                {
-                    <div class="col-md-3 mt-3">
-                        <div class="card">
-                            <img src="@character.Image" class="card-img-top" alt="No image" />
-                            <div class="card-body">
-                                <p class="card-text"><strong>@character.Name</strong></p>
-                                <p class="card-text">Espécie: @character.Species</p>
-                                <p class="card-text">Status: @character.Status</p>
-                                <p class="card-text">Origem: @character.Origin.Name</p>
-                                <p class="card-text">Localização: @character.Location.Name</p>
-                            </div>
-                        </div>
-                    </div>
-                }
+            
+            <div class="container" style="max-width: 95%; margin: 0 auto;">
+                <div class="row justify-content-around" id="character-cards">
+                    @* cards inseridos via JavaScript *@
+                </div>
             </div>
 
             <div class="text-center mt-3" id="paginacao">

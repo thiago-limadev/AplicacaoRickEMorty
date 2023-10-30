@@ -1,22 +1,83 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+.no-bullets {
+    max-height: 200px;
+    overflow: auto;
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    text-justify: auto;
+    scrollbar-width: thin; /* "thin" pode ser ajustado conforme necessário */
+    scrollbar-color: transparent transparent; /* define a cor da barra de rolagem como transparente */
+}
+
+
+
+.container-details {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.cartao-detalhes{
+
+    align-content:center;
+    margin-top: 30px;
+    margin-left: 50px;
+ }
+
+.card-text-detalhado{
+    margin-bottom: 10px;
+
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-text {
+    margin-bottom: 0;
+}
+
+.filters-container {
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content:left;
+}
+
+.filter-label {
+    margin-right: 10px;
+    margin-left: 150px;
+}
+
+

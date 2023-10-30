@@ -26,9 +26,13 @@
         public Location Location { get; set; }
         public string Image { get; set; }
         public IList<string> Episode { get; set; }
+        public List<string> EpisodeNames { get; set; }
+        public List<int> NumEpisodes { get; set; }
         public string Url { get; set; }
         public DateTime Created { get; set; }
 
     }
+
+
 }
 
