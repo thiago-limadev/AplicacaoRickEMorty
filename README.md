@@ -1,4 +1,4 @@
-# Escola Definitivo
+# Aplicação Rick & Morty
 
 O consumo da API de Rick & Morty em um projeto MVC envolve a integração e manipulação de dados provenientes da API em um ambiente de aplicação web. 
 
