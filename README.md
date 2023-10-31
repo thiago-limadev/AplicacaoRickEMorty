@@ -1,58 +1,60 @@
 # Aplicação Rick & Morty
 
-O consumo da API de Rick & Morty em um projeto MVC envolve a integração e manipulação de dados provenientes da API em um ambiente de aplicação web. 
+O consumo da API de Rick & Morty em um projeto MVC implica a integração e manipulação de dados vindos da API em um ambiente de aplicação web.
 
 ### Funcionalidades do aplicativo: 📌
 
-- Listagem de Personagens: Os usuários podem acessar uma lista completa de personagens da série Rick & Morty. Cada personagem é exibido com detalhes como nome, gênero, status e uma imagem representativa.
+Listagem de Personagens: Aqui você pode conferir a lista completa de personagens da série Rick & Morty. Cada um deles é apresentado com detalhes como nome, gênero, status e uma imagem que é a cara deles.
 
-- Listagem de Episódios Relacionados: Para cada personagem, o aplicativo exibe os episódios em que esse personagem apareceu. Os episódios são listados com informações como nome, número e temporada.
+Listagem de Episódios: Para cada personagem, o aplicativo mostra todos os episódios em que esse personagem dá o ar da graça. Você pode ver informações interessantes como nome, número e temporada.
 
-- Filtros por Nome, Gênero e Status: Os usuários podem filtrar a lista de personagens com base em critérios como o nome do personagem, seu gênero e seu status (por exemplo, "vivo" ou "morto"). Isso permite que os usuários encontrem rapidamente os personagens que desejam.
+Filtros Personalizados: Não importa se você procura pelo nome do personagem, gênero ou status (talvez "vivo" ou "morto"), temos filtros que vão te ajudar a encontrar rapidinho os personagens que você quer ver.
 
-     
 ## 🚀 Começando
+Com essas instruções, você vai poder ter sua própria cópia desse projeto na sua máquina, pronto para explorar e testar.
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+Existem algumas maneiras de usar isso, para os desenvolvedores, vamos disponibilizar os pacotes necessários para você seguir em frente. Olha só embaixo:
 
+### 📋 Requisitos Necessários
+Se você só quer dar uma olhadinha na aplicação, temos um caminho mais tranquilo para você. Vamos lá:
 
-### 📋 Pré-requisitos
+- Primeiro, você vai precisar fazer o download do arquivo Zip neste link maravilhoso: https://github.com/thiago-limadev/AplicacaoRickEMorty.
+- Depois que o download terminar, é só descompactar o arquivo.
+- Agora, abra o Visual Studio e dê o play na aplicação (ou aperte F5).
+- Se preferir usar o Visual Studio Code, é só acessar o caminho pelo terminal de comando em SuaPastaDoArquivo/AplicacaoRickEMorty-master/AplicacaoRickEMorty-master/AplicacaoRickEMorty e executar o comando dotnet watch.
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+###Se você é um(a) desenvolvedor(a) animado(a), antes de começar, verifique se tem esses requisitos aqui:
 
-* Você instalou a versão mais recente de `<.Net >`
-* Você instalou a versão mais recente dos Pacotes `< Refit.HttpClientFactory / Refit / Newtonsoft.Json>`.
-* Você tem uma máquina `<Windows >`.
-
-Além disto é bom ter um editor para trabalhar com o código.
+Você já instalou a última versão do <.Net >.
+Você já instalou a última versão dos Pacotes < Refit.HttpClientFactory / Refit / Newtonsoft.Json>.
+E claro, você tem uma máquina <Windows> super potente.
+Ah, e é sempre bom ter um editor incrível para trabalhar no código.
 
 ### 🔧 Instalação
-
-Para começar, você precisa clonar este repositório no seu ambiente local(caso prefira você pode realizar o download do arquivo Zip):
+Para começar, você precisa clonar este repositório no seu ambiente local (ou se preferir, faça o download do arquivo Zip):
 
 ```bash
-# Clone este repositório
-git clone https://github.com/thiago-limadev/EscolaDefinitivo.git
+Copy code
+# Clone este repositório 
+git clone https://github.com/thiago-limadev/AplicacaoRickEMorty.git
 
-# Acesse a pasta do projeto no terminal
+# Vá até a pasta do projeto pelo terminal
 cd sua-pasta-destino
 
-#Abra o arquivo com Visual Studio
+# Abra o arquivo com o Visual Studio, um verdadeiro herói da programação!
 
-#Instale os pacotes através gerenciador de pacotes
-Vá em Ferramentas -> Gerenciador de Pacotes do NuGet -> Gerenciar Pacotes do NuGet para Solução..
-Instale / atualize  os pacotes necessários da aplicação : Refit.HttpClientFactory / Refit / Newtonsoft.Json
+# Instale os pacotes usando o gerenciador de pacotes
+Vá em Ferramentas -> Gerenciador de Pacotes do NuGet -> Gerenciar Pacotes do NuGet para Solução...
+Instale ou atualize os pacotes necessários da aplicação: Refit.HttpClientFactory / Refit / Newtonsoft.Json
 
-# Dê play na aplicação
+# Dê o play na aplicação, é hora de se divertir!
 Aperte F5
  ````
 
-## ⚙️ Executando os testes
+## ⚙️ Testando as Coisas Incríveis
+Assim que você iniciar a aplicação, vai se deparar com a lista de personagens e vai poder explorar páginas e mais páginas rolando para baixo.
 
-Quando iniciar a aplicação logo verá a lista de personagens e será possível navegar entre as páginas ao rolar a página para baixo. 
-
-Terá também os campos de filtragem disponíveis na tela, teste todas as combinações que desejar!
-
+Ah, e não se esqueça dos filtros! Teste todas as combinações que quiser e divirta-se!
 
  
 ## 🛠️ Construído com
@@ -66,6 +68,6 @@ Terá também os campos de filtragem disponíveis na tela, teste todas as combin
 
 ## 🎁 Expressões de gratidão
 
-* Quero deixar aqui registrado a minha gratidão aos meus amigos que me apoiaram durante essa jornada:
+Quero deixar aqui registrado a minha gratidão aos meus amigos que me apoiaram durante essa jornada:
    - Jaqueline Lima - Esposa e amor da minha vida, que vem me apoiando e dando todo o suporte desde início da minha jornada como desenvolvedor;
         
