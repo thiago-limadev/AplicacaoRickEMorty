@@ -18,7 +18,7 @@ Existem algumas maneiras de usar isso, para os desenvolvedores, vamos disponibil
 ### 📋 Requisitos Necessários
 Se você só quer dar uma olhadinha na aplicação, temos um caminho mais tranquilo para você. Vamos lá:
 
-- Primeiro, você vai precisar fazer o download do arquivo Zip neste link maravilhoso: https://github.com/thiago-limadev/AplicacaoRickEMorty.
+- Primeiro, você vai precisar fazer o download do arquivo Zip neste link : https://github.com/thiago-limadev/AplicacaoRickEMorty.
 - Depois que o download terminar, é só descompactar o arquivo.
 - Agora, abra o Visual Studio e dê o play na aplicação (ou aperte F5).
 - Se preferir usar o Visual Studio Code, é só acessar o caminho pelo terminal de comando em SuaPastaDoArquivo/AplicacaoRickEMorty-master/AplicacaoRickEMorty-master/AplicacaoRickEMorty e executar o comando dotnet watch.
