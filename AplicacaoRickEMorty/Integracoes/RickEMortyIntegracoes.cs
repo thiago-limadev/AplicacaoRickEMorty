@@ -31,8 +31,7 @@ namespace AplicacaoRickEMorty.Integracoes
             }
             catch (Exception ex)
             {
-                // Lide com a exceção de acordo com a lógica de negócios do seu aplicativo
-                // Aqui, estamos relançando a exceção para os níveis superiores
+                Console.WriteLine($"Encontramos um erro ao tentar obter os personagens, mais detalhes: {ex.Message}");
                 throw;
             }
         }
@@ -52,8 +51,7 @@ namespace AplicacaoRickEMorty.Integracoes
             }
             catch (Exception ex)
             {
-                // Lide com a exceção de acordo com a lógica de negócios do seu aplicativo
-                // Aqui, estamos relançando a exceção para os níveis superiores
+                Console.WriteLine($"Encontramos um erro ao tentar carregar a página, mais detalhes: {ex.Message}");
                 throw;
             }
         }
@@ -62,7 +60,7 @@ namespace AplicacaoRickEMorty.Integracoes
         {
             try
             {
-                // Lógica para construir a URL com base nos parâmetros de filtro
+                
                 var url = "https://rickandmortyapi.com/api/character/"; // URL base
 
                 if (!string.IsNullOrEmpty(name))
@@ -106,8 +104,7 @@ namespace AplicacaoRickEMorty.Integracoes
             }
             catch (Exception ex)
             {
-                // Lide com a exceção de acordo com a lógica de negócios do seu aplicativo
-                // Aqui, estamos relançando a exceção para os níveis superiores
+                Console.WriteLine($"Encontramos um erro ao tentar filtrar os personagens, mais detalhes: {ex.Message}");
                 throw;
             }
         }

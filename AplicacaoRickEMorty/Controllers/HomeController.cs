@@ -72,7 +72,7 @@ namespace AplicacaoRickEMorty.Controllers
                 character.EpisodeNames = episodeNames;
                 character.NumEpisodes = episodeIds;
 
-                return View(character); // Use uma view para exibir os detalhes do personagem
+                return View(character); 
             }
             catch (HttpRequestException ex)
             {
@@ -94,7 +94,7 @@ namespace AplicacaoRickEMorty.Controllers
             {
                 return id;
             }
-            return -1; // ou lance uma exceção, dependendo da lógica do seu aplicativo
+            return -1; 
         }
 
         public async Task<string> GetEpisodeName(int episodeId)

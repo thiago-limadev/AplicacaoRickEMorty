@@ -1,5 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("status").value; // Define "Todos" como o valor padrão
+    document.getElementById("status").value; 
     applyFilters(getPageNumberFromUrl(window.location.href));
 });
 
@@ -125,7 +125,7 @@ function updateDisplay(data) {
     // Limpar a exibição atual
     container.innerHTML = "";
 
-    // Atualizar a exibição com os novos dados
+    // Atualiza a exibição com os novos dados
     if (data.results) {
         data.results.forEach(function (character) {
             var card = document.createElement("div");

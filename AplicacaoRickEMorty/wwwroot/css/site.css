@@ -28,8 +28,8 @@ body {
     list-style-type: none;
     padding: 0;
     text-justify: auto;
-    scrollbar-width: thin; /* "thin" pode ser ajustado conforme necessário */
-    scrollbar-color: transparent transparent; /* define a cor da barra de rolagem como transparente */
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent; 
 }
 
 
