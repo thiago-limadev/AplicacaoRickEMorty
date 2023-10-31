@@ -4,11 +4,11 @@ O consumo da API de Rick & Morty em um projeto MVC implica a integração e mani
 
 ### Funcionalidades do aplicativo: 📌
 
-Listagem de Personagens: Aqui você pode conferir a lista completa de personagens da série Rick & Morty. Cada um deles é apresentado com detalhes como nome, gênero, status e uma imagem que é a cara deles.
+- Listagem de Personagens: Aqui você pode conferir a lista completa de personagens da série Rick & Morty. Cada um deles é apresentado com detalhes como nome, gênero, status e uma imagem que é a cara deles.
 
-Listagem de Episódios: Para cada personagem, o aplicativo mostra todos os episódios em que esse personagem dá o ar da graça. Você pode ver informações interessantes como nome, número e temporada.
+- Listagem de Episódios: Para cada personagem, o aplicativo mostra todos os episódios em que esse personagem dá o ar da graça. Você pode ver informações interessantes como nome, número e temporada.
 
-Filtros Personalizados: Não importa se você procura pelo nome do personagem, gênero ou status (talvez "vivo" ou "morto"), temos filtros que vão te ajudar a encontrar rapidinho os personagens que você quer ver.
+- Filtros Personalizados: Não importa se você procura pelo nome do personagem, gênero ou status (talvez "vivo" ou "morto"), temos filtros que vão te ajudar a encontrar rapidinho os personagens que você quer ver.
 
 ## 🚀 Começando
 Com essas instruções, você vai poder ter sua própria cópia desse projeto na sua máquina, pronto para explorar e testar.
