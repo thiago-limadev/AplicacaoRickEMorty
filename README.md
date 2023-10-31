@@ -23,7 +23,7 @@ Se você só quer dar uma olhadinha na aplicação, temos um caminho mais tranqu
 - Agora, abra o Visual Studio e dê o play na aplicação (ou aperte F5).
 - Se preferir usar o Visual Studio Code, é só acessar o caminho pelo terminal de comando em SuaPastaDoArquivo/AplicacaoRickEMorty-master/AplicacaoRickEMorty-master/AplicacaoRickEMorty e executar o comando dotnet watch.
 
-###Se você é um(a) desenvolvedor(a) animado(a), antes de começar, verifique se tem esses requisitos aqui:
+### Se você é um(a) desenvolvedor(a) animado(a), antes de começar, verifique se tem esses requisitos aqui:
 
 Você já instalou a última versão do <.Net >.
 Você já instalou a última versão dos Pacotes < Refit.HttpClientFactory / Refit / Newtonsoft.Json>.
